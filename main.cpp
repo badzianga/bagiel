@@ -4,7 +4,7 @@ int main() {
     bgl::Window window{ 800, 600, "Bagiel Window" };
 
     while (window.isOpen()) {
-        window.clear();
+        window.clear(bgl::Color::Cyan);
 
         window.display();
     }

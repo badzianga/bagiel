@@ -43,7 +43,8 @@ namespace bgl {
         glfwSetWindowShouldClose(p_window, GLFW_TRUE);
     }
 
-    void Window::clear() {
+    void Window::clear(bgl::Color color) {
+        glClearColor(color.r, color.g, color.b, color.a);
         glClear(GL_COLOR_BUFFER_BIT);
     }
 

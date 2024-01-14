@@ -32,7 +32,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Bagiel main.cpp
         src/Window.cpp
-        include/Window.hpp)
+        include/Window.hpp
+        src/Color.cpp
+        include/Color.hpp)
 
 target_include_directories(Bagiel PRIVATE include)
 target_link_libraries(Bagiel glad glfw)
