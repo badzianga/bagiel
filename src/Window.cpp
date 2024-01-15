@@ -28,6 +28,7 @@ namespace bgl {
             exit(-1);
         }
 
+        m_size = Vector2((float)width, (float)height);
         glfwMakeContextCurrent(p_window);
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -57,6 +58,10 @@ namespace bgl {
     void Window::display() {
         glfwSwapBuffers(p_window);
         glfwPollEvents();
+    }
+
+    Vector2 Window::getSize() const {
+        return m_size;
     }
 
     bool Window::isOpen() const {
