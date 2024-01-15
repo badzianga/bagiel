@@ -1,8 +1,6 @@
 #include <Window.hpp>
 #include <Input.hpp>
 
-#include <iostream>
-
 int main() {
     bgl::Window window{ 800, 600, "Bagiel Window" };
     window.setVSyncEnabled(true);

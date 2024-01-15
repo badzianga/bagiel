@@ -35,8 +35,12 @@ add_executable(Bagiel main.cpp
         include/Window.hpp
         src/Color.cpp
         include/Color.hpp
-        include/Input.cpp
-        include/Input.hpp)
+        src/Input.cpp
+        include/Input.hpp
+        src/Renderer.cpp
+        include/Renderer.hpp
+        src/Vector2.cpp
+        include/Vector2.hpp)
 
 target_include_directories(Bagiel PRIVATE include)
 target_link_libraries(Bagiel glad glfw)
