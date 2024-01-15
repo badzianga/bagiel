@@ -40,7 +40,9 @@ add_executable(Bagiel main.cpp
         src/Renderer.cpp
         include/Renderer.hpp
         src/Vector2.cpp
-        include/Vector2.hpp)
+        include/Vector2.hpp
+        src/Shader.cpp
+        include/Shader.hpp)
 
 target_include_directories(Bagiel PRIVATE include)
 target_link_libraries(Bagiel glad glfw)
