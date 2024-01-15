@@ -37,6 +37,9 @@ namespace bgl {
         }
 
         glViewport(0, 0, (int)width, (int)height);
+
+        std::cout << "OpenGL API " << glGetString(GL_VERSION) << '\n';
+        std::cout << "Using device: " << glGetString(GL_VENDOR) << " - " << glGetString(GL_RENDERER) << '\n';
     }
 
     void Window::close() {
