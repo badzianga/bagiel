@@ -41,6 +41,8 @@ namespace bgl {
         glViewport(0, 0, (int)width, (int)height);
 
         glfwSetKeyCallback(p_window, Input::keyCallback);
+        glfwSetMouseButtonCallback(p_window, Input::mouseButtonCallback);
+        glfwSetCursorPosCallback(p_window, Input::mousePosCallback);
 
         std::cout << "OpenGL API " << glGetString(GL_VERSION) << '\n';
         std::cout << "Using device: " << glGetString(GL_VENDOR) << " - " << glGetString(GL_RENDERER) << '\n';
