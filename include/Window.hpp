@@ -20,6 +20,7 @@ namespace bgl {
         void clear(bgl::Color color = bgl::Color::Black);
         void display();
         [[nodiscard]] bool isOpen() const;
+        void setVSyncEnabled(bool enabled);
     private:
         GLFWwindow* p_window;
         void initGLFW();

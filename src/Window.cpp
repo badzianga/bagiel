@@ -1,4 +1,5 @@
 #include <Window.hpp>
+#include <Input.hpp>
 
 #include <iostream>
 
@@ -38,6 +39,8 @@ namespace bgl {
 
         glViewport(0, 0, (int)width, (int)height);
 
+        glfwSetKeyCallback(p_window, Input::keyCallback);
+
         std::cout << "OpenGL API " << glGetString(GL_VERSION) << '\n';
         std::cout << "Using device: " << glGetString(GL_VENDOR) << " - " << glGetString(GL_RENDERER) << '\n';
     }
@@ -58,6 +61,10 @@ namespace bgl {
 
     bool Window::isOpen() const {
         return !glfwWindowShouldClose(p_window);
+    }
+
+    void Window::setVSyncEnabled(bool enabled) {
+        glfwSwapInterval((int)enabled);
     }
 
     void Window::initGLFW() {
