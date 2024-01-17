@@ -28,6 +28,14 @@ if(NOT glad_POPULATED)
 endif()
 
 
+FetchContent_Declare(glm GIT_REPOSITORY https://github.com/g-truc/glm.git)
+FetchContent_GetProperties(glm)
+if(NOT glm_POPULATED)
+    FetchContent_Populate(glm)
+    add_subdirectory(${glm_SOURCE_DIR} ${glm_BINARY_DIR})
+endif()
+
+
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Bagiel main.cpp
@@ -42,7 +50,9 @@ add_executable(Bagiel main.cpp
         src/Vector2.cpp
         include/Vector2.hpp
         src/Shader.cpp
-        include/Shader.hpp)
+        include/Shader.hpp
+        src/Rectangle.cpp
+        include/Rectangle.hpp)
 
 target_include_directories(Bagiel PRIVATE include)
-target_link_libraries(Bagiel glad glfw)
+target_link_libraries(Bagiel glad glfw glm)
