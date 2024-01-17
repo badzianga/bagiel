@@ -5,6 +5,8 @@
 #include <unordered_map>
 #include <string>
 
+#include <glm/glm.hpp>
+
 namespace bgl {
 
     class Shader {
@@ -20,6 +22,9 @@ namespace bgl {
         void setVector2(const char* name, float x, float y);
         void setVector3(const char* name, float x, float y, float z);
         void setVector4(const char* name, float x, float y, float z, float w);
+        void setMatrix2(const char* name, const glm::mat2& matrix);
+        void setMatrix3(const char* name, const glm::mat3& matrix);
+        void setMatrix4(const char* name, const glm::mat4& matrix);
     private:
         uint32_t m_id;
         std::unordered_map<const char*, int32_t> m_uniformLocationCache;

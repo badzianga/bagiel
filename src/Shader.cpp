@@ -74,6 +74,18 @@ namespace bgl {
         glUniform4f(getUniformLocation(name), x, y, z, w);
     }
 
+    void Shader::setMatrix2(const char* name, const glm::mat2& matrix) {
+        glUniformMatrix2fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
+    }
+
+    void Shader::setMatrix3(const char* name, const glm::mat3& matrix) {
+        glUniformMatrix3fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
+    }
+
+    void Shader::setMatrix4(const char* name, const glm::mat4& matrix) {
+        glUniformMatrix4fv(getUniformLocation(name), 1, GL_FALSE, &matrix[0][0]);
+    }
+
     std::string Shader::readFile(const char* path) {
         std::ifstream file;
         file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
