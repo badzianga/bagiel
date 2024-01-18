@@ -1,8 +1,11 @@
 #ifndef BAGIEL_RECTANGLE_HPP
 #define BAGIEL_RECTANGLE_HPP
 
-#include <Renderer.hpp>
+#include <Color.hpp>
 #include <Vector2.hpp>
+#include <Vertex.hpp>
+
+#include <array>
 
 namespace bgl {
 
@@ -28,8 +31,9 @@ namespace bgl {
         Vector2 m_position;
         float m_rotation;
         Vector2 m_scale;
-        Vertex m_vertices[4];
+        std::array<Vertex, 4> m_vertices;
         void updateGeometry();
+        friend class Renderer;
     };
 
 } // bgl

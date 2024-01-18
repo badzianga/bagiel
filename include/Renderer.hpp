@@ -2,53 +2,28 @@
 #define BAGIEL_RENDERER_HPP
 
 #include <cstdint>
+#include <vector>
 
 #include <Color.hpp>
 #include <Vector2.hpp>
+#include <Vertex.hpp>
+#include <Rectangle.hpp>
 
 namespace bgl {
 
-    struct Vertex {
-        Vector2 position;
-        Color color;
-        //Vector2 textureCoord;
-        //uint32_t textureId;
-    };
-
-    class VertexArray {
-    public:
-        VertexArray();
-        virtual ~VertexArray();
-        void bind() const;
-        void unbind() const;
-    private:
-        uint32_t m_id;
-    };
-
-    class VertexBuffer {
-    public:
-        VertexBuffer(const void* data, uint32_t size);
-        virtual ~VertexBuffer();
-        void bind() const;
-        void unbind() const;
-    private:
-        uint32_t m_id;
-    };
-
-    class ElementBuffer {
-    public:
-        ElementBuffer(const uint32_t* data, uint32_t count);
-        virtual ~ElementBuffer();
-        void bind() const;
-        void unbind() const;
-        [[nodiscard]] uint32_t getCount() const;
-    private:
-        uint32_t m_id;
-        uint32_t m_count;
-    };
-
     class Renderer {
-
+    public:
+        Renderer();
+        virtual ~Renderer();
+        void addData(const Rectangle& rect);
+        void renderData();
+        void clearData();
+    private:
+        uint32_t m_vao;
+        uint32_t m_vbo;
+        uint32_t m_ebo;
+        size_t m_elementCount;
+        std::vector<Vertex> m_vertices;
     };
 
 } // bgl

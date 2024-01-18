@@ -9,12 +9,14 @@ namespace bgl {
         m_vertices[1].position = { size.x, 0.f };
         m_vertices[2].position = { 0.f, size.y };
         m_vertices[3].position = size;
+        for (auto & vertex : m_vertices) {
+            vertex.color = Color::Transparent;
+        }
     }
 
     void Rectangle::setSize(const Vector2& size) {
         m_size = size;
         updateGeometry();
-
     }
 
     Vector2 Rectangle::getSize() const {

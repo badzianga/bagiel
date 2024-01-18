@@ -8,6 +8,8 @@
 
 #include <Color.hpp>
 #include <Vector2.hpp>
+#include <Rectangle.hpp>
+#include <Renderer.hpp>
 
 namespace bgl {
 
@@ -20,11 +22,13 @@ namespace bgl {
         void close();
         void clear(bgl::Color color = bgl::Color::Black);
         void display();
+        void draw(const Rectangle& rect);
         [[nodiscard]] Vector2 getSize() const;
         [[nodiscard]] bool isOpen() const;
         void setVSyncEnabled(bool enabled);
     private:
         GLFWwindow* p_window;
+        Renderer* p_renderer;
         Vector2 m_size;
         void initGLFW();
     };

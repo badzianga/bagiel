@@ -52,7 +52,8 @@ add_executable(Bagiel main.cpp
         src/Shader.cpp
         include/Shader.hpp
         src/Rectangle.cpp
-        include/Rectangle.hpp)
+        include/Rectangle.hpp
+        include/Vertex.hpp)
 
 target_include_directories(Bagiel PRIVATE include)
 target_link_libraries(Bagiel glad glfw glm)

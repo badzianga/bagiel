@@ -5,16 +5,17 @@
 
 namespace bgl {
 
-    Window::Window() : p_window(nullptr) {
+    Window::Window() : p_window(nullptr), p_renderer(nullptr) {
         initGLFW();
     }
 
-    Window::Window(uint32_t width, uint32_t height, const char *title) : p_window(nullptr) {
+    Window::Window(uint32_t width, uint32_t height, const char *title) : p_window(nullptr), p_renderer(nullptr) {
         initGLFW();
         create(width, height, title);
     }
 
     Window::~Window() {
+        delete p_renderer;
         glfwDestroyWindow(p_window);
         glfwTerminate();
     }
@@ -37,12 +38,15 @@ namespace bgl {
             glfwTerminate();
             exit(-1);
         }
+        glfwSwapInterval(0);
 
         glViewport(0, 0, (int)width, (int)height);
 
         glfwSetKeyCallback(p_window, Input::keyCallback);
         glfwSetMouseButtonCallback(p_window, Input::mouseButtonCallback);
         glfwSetCursorPosCallback(p_window, Input::mousePosCallback);
+
+        p_renderer = new Renderer();
 
         std::cout << "OpenGL API " << glGetString(GL_VERSION) << '\n';
         std::cout << "Using device: " << glGetString(GL_VENDOR) << " - " << glGetString(GL_RENDERER) << '\n';
@@ -53,13 +57,19 @@ namespace bgl {
     }
 
     void Window::clear(bgl::Color color) {
+        p_renderer->clearData();
         glClearColor(color.r, color.g, color.b, color.a);
         glClear(GL_COLOR_BUFFER_BIT);
     }
 
     void Window::display() {
+        p_renderer->renderData();
         glfwSwapBuffers(p_window);
         glfwPollEvents();
+    }
+
+    void Window::draw(const Rectangle& rect) {
+        p_renderer->addData(rect);
     }
 
     Vector2 Window::getSize() const {
