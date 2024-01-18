@@ -23,6 +23,7 @@ namespace bgl {
     const Color Color::Cyan{ 0.f, 1.f, 1.f, 1.f };
     const Color Color::White{ 1.f, 1.f, 1.f, 1.f };
     const Color Color::Black{ 0.f, 0.f, 0.f, 1.f };
+    const Color Color::Transparent{ 0.f, 0.f, 0.f, 0.f };
 
     Color8::Color8() : r(0), g(0), b(0), a(255) {}
 
@@ -43,5 +44,6 @@ namespace bgl {
     const Color8 Color8::Cyan{ 0, 255, 255, 255 };
     const Color8 Color8::White{ 255, 255, 255, 255 };
     const Color8 Color8::Black{ 0, 0, 0, 255 };
+    const Color8 Color8::Transparent{ 0, 0, 0, 0 };
 
 } // bgl

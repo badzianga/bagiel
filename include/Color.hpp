@@ -16,7 +16,7 @@ namespace bgl {
 
         Color();
         Color(float red, float green, float blue, float alpha);
-        explicit Color(const Color8& color);
+        Color(const Color8& color);
 
         static const Color Red;
         static const Color Green;
@@ -26,6 +26,7 @@ namespace bgl {
         static const Color Cyan;
         static const Color White;
         static const Color Black;
+        static const Color Transparent;
     };
 
 
@@ -38,7 +39,7 @@ namespace bgl {
 
         Color8();
         Color8(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
-        explicit Color8(const Color& color);
+        Color8(const Color& color);
 
         static const Color8 Red;
         static const Color8 Green;
@@ -48,6 +49,7 @@ namespace bgl {
         static const Color8 Cyan;
         static const Color8 White;
         static const Color8 Black;
+        static const Color8 Transparent;
     };
 
 } // bgl
