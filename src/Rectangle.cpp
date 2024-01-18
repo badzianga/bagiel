@@ -81,7 +81,7 @@ namespace bgl {
 
     void Rectangle::updateGeometry() {
         // TODO: clean up this section - especially rotating the corners
-        float rad = m_rotation * (M_PIf / 180.f);
+        float rad = m_rotation * ((float)M_PI / 180.f);
         float s = std::sin(rad);
         float c = std::cos(rad);
         float xNew;
