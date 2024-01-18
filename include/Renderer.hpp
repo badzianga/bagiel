@@ -8,12 +8,13 @@
 #include <Vector2.hpp>
 #include <Vertex.hpp>
 #include <Rectangle.hpp>
+#include <Shader.hpp>
 
 namespace bgl {
 
     class Renderer {
     public:
-        Renderer();
+        explicit Renderer(const Vector2& windowSize);
         virtual ~Renderer();
         void addData(const Rectangle& rect);
         void renderData();
@@ -24,6 +25,7 @@ namespace bgl {
         uint32_t m_ebo;
         size_t m_elementCount;
         std::vector<Vertex> m_vertices;
+        Shader* p_shader;
     };
 
 } // bgl

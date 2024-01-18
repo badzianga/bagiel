@@ -1,15 +1,21 @@
 #include <Renderer.hpp>
 
 #include <glad/glad.h>
+#include <glm/gtc/matrix_transform.hpp>
 
 #include <iostream>
 
 namespace bgl {
 
-    Renderer::Renderer() : m_vao(0), m_vbo(0), m_ebo(0), m_elementCount(0) {
+    Renderer::Renderer(const Vector2& windowSize) : m_vao(0), m_vbo(0), m_ebo(0), m_elementCount(0) {
         const size_t maxQuadCount = 1024;
         const size_t maxVertexCount = maxQuadCount * 4;
         const size_t maxIndexCount = maxQuadCount * 6;
+
+        p_shader = new Shader("shaders/shader.vert", "shaders/shader.frag");
+
+        glm::mat4 projectionMatrix = glm::ortho(0.f, windowSize.x, windowSize.y, 0.f, 0.f, 1.f);
+        p_shader->setMatrix4("u_projection", projectionMatrix);
 
         glGenVertexArrays(1, &m_vao);
         glBindVertexArray(m_vao);
@@ -47,6 +53,8 @@ namespace bgl {
         glDeleteBuffers(1, &m_ebo);
         glDeleteBuffers(1, &m_vbo);
         glDeleteVertexArrays(1, &m_vao);
+
+        delete p_shader;
     }
 
     void Renderer::addData(const Rectangle& rect) {

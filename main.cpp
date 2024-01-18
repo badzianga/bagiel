@@ -1,19 +1,11 @@
 #include <Window.hpp>
 #include <Input.hpp>
 #include <Renderer.hpp>
-#include <Shader.hpp>
-
-#include <glm/gtc/matrix_transform.hpp>
 
 #include <iostream>
 
 int main() {
     bgl::Window window{ 800, 600, "Bagiel Window" };
-
-    bgl::Shader shader{ "shaders/shader.vert", "shaders/shader.frag" };
-
-    glm::mat4 projectionMatrix = glm::ortho(0.f, window.getSize().x, window.getSize().y, 0.f, 0.f, 1.f);
-    shader.setMatrix4("u_projection", projectionMatrix);
 
     bgl::Rectangle rect{ { 32.f, 32.f } };
     rect.setFillColor(bgl::Color::Black);
