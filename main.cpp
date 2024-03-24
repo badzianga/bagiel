@@ -1,39 +1,23 @@
 #include <Window.hpp>
 #include <Input.hpp>
-#include <Renderer.hpp>
-
 #include <iostream>
 
+
 int main() {
-    bgl::Window window{ 800, 600, "Bagiel Window" };
+    bgl::Window window{ 800, 600, "Window Title" };
 
-    bgl::Rectangle rect{ { 32.f, 32.f } };
-    rect.setFillColor(bgl::Color::Black);
-
-    double previousTime = glfwGetTime();
-    int frameCount = 0;
+    bgl::Rectangle rect{ bgl::Vector2(300.f, 300.f) };
+    rect.setFillColor(bgl::Color::Red);
+    rect.setPosition(bgl::Vector2(30.f, 40.f));
 
     while (window.isOpen()) {
-        window.clear(bgl::Color8(144, 144, 168, 255));
-
         if (bgl::Input::isKeyPressed(GLFW_KEY_ESCAPE)) {
             window.close();
         }
 
-        double currentTime = glfwGetTime();
-        frameCount++;
-        if (currentTime - previousTime >= 1.0) {
-            std::cout << frameCount << '\n';
-            frameCount = 0;
-            previousTime = currentTime;
-        }
+        window.clear(bgl::Color::White);
 
-        for (int y = 4; y < 600; y += 40) {
-            for (int x = 4; x < 800; x += 40) {
-                rect.setPosition({ (float)x, (float)y });
-                window.draw(rect);
-            }
-        }
+        window.draw(rect);
 
         window.display();
     }
