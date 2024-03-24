@@ -4,6 +4,7 @@ Currently it can:
 - create window;
 - handle mouse and keyboard inputs;
 - draw simple color rectangles using batch rendering.
+
 Unfortunately, documentation is not available right now, so the best method to check capabilities is just reading source code. Sorry :(
 
 # Building
