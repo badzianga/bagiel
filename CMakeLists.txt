@@ -57,3 +57,5 @@ add_executable(Bagiel main.cpp
 
 target_include_directories(Bagiel PRIVATE include)
 target_link_libraries(Bagiel glad glfw glm)
+
+file(COPY shaders DESTINATION "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
