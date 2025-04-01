@@ -8,12 +8,17 @@ Currently it can:
 Unfortunately, documentation is not available right now, so the best method to check capabilities is just reading source code. Sorry :(
 
 # Building
-Project is written using CMake, so only dependencies used are CMake itself and Git. After building it is necessary to copy *shaders* directory to build location. 
+Project is written using CMake, so only dependencies used are CMake itself and Git.
+```bash
+mkdir build && cd build
+cmake ..
+make
+```
 
 # Example
-```
-#include<Window.hpp>
-#include<Input.hpp>
+```C++
+#include "Window.hpp"
+#include "Input.hpp"
 
 int main() {
     bgl::Window window{ 800, 600, "Window Title" };
